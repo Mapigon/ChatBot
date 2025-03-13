@@ -1,5 +1,9 @@
+from idlelib.configdialog import help_common
+from idlelib.debugobj import dispatch
+
+import telegram
 from telegram import Update
-from telegram.ext import (Updater, CommandHandler, MessageHandler, Filters, CallbackContext)
+from telegram.ext import (Updater, CommandHandler, MessageHandler, Filters, CallbackQueryHandler, CallbackContext)
 from ChatGPT_HKBU import HKBU_ChatGPT
 import configparser
 import logging
