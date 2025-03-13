@@ -1,9 +1,5 @@
-from idlelib.configdialog import help_common
-from idlelib.debugobj import dispatch
-
-import telegram
 from telegram import Update
-from telegram.ext import (Updater, CommandHandler, MessageHandler, Filters, CallbackQueryHandler, CallbackContext)
+from telegram.ext import (Updater, CommandHandler, MessageHandler, Filters, CallbackContext)
 from ChatGPT_HKBU import HKBU_ChatGPT
 import configparser
 import logging
@@ -53,6 +49,7 @@ def main():
 
     dispatcher.add_handler(CommandHandler('add', add))
     dispatcher.add_handler(CommandHandler('help', help_command))
+    dispatcher.add_handler(CommandHandler('hello', hello_command))
 
     updater.start_polling()
     updater.idle()
@@ -65,6 +62,9 @@ def echo(update, context):
 
 def help_command(update: Update, context: CallbackContext) -> None:
     update.message.reply_text('How can I help you ?')
+
+def hello_command(update: Update, context: CallbackContext) -> None:
+    update.message.reply_text('Good day, Kevin!')
 
 def add(update: Update, context: CallbackContext) -> None:
     try:
